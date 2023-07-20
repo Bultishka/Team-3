@@ -136,7 +136,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2eb1efd9bc156ac45b9341d37e7dc2d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ShowingPanel: {fileID: 0}
+  ShowingPanelSettings: {fileID: 0}
+  ShowingPanelPlatformInfo: {fileID: 0}
 --- !u!114 &8391177429902397327
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -157,6 +158,18 @@ MonoBehaviour:
         - m_Target: {fileID: 8391177429902397323}
           m_TargetAssemblyTypeName: SceneSettingsManager, Assembly-CSharp
           m_MethodName: PausePushButtonReleased
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 8391177429902397323}
+          m_TargetAssemblyTypeName: SceneSettingsManager, Assembly-CSharp
+          m_MethodName: ShowPanelPlatformInfo
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -233,16 +246,16 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
-    m_FontStyle: 0
+    m_Font: {fileID: 12800000, guid: 8a2b9e2a607dd2143b58c44bc32410b4, type: 3}
+    m_FontSize: 74
+    m_FontStyle: 1
     m_BestFit: 0
-    m_MinSize: 10
-    m_MaxSize: 40
+    m_MinSize: 7
+    m_MaxSize: 74
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Button
+  m_Text: Pause
