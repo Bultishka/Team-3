@@ -6,7 +6,10 @@ using UnityEngine.SceneManagement;
 public class SceneSettingsManager : MonoBehaviour
 {
     [SerializeField]
-    private GameObject ShowingPanel;
+    private GameObject ShowingPanelSettings;
+
+    [SerializeField]
+    private GameObject ShowingPanelPlatformInfo;
 
     public void RestartPushButtonReleased()
     {
@@ -17,19 +20,16 @@ public class SceneSettingsManager : MonoBehaviour
 
     public void PausePushButtonReleased()
     {
-        // Showing Our Panel (maybe)
+        ShowingPanelSettings.SetActive(true);
+        ShowingPanelSettings.GetComponentInParent<Canvas>().sortingOrder = 1;
         Time.timeScale = 0.0f; // Stop game time
     }
 
     public void ContinuePushButtonReleased()
     {
-        // Hiding Out Panel (maybe)
+        ShowingPanelSettings.SetActive(false);
+        ShowingPanelSettings.GetComponentInParent<Canvas>().sortingOrder = 0;
         if (Time.timeScale == 0.0f)
             Time.timeScale = 1.0f;
-    }
-
-    void Update()
-    {
-        
     }
 }

@@ -12,6 +12,8 @@ public class PlatformDragger : MonoBehaviour, IDragHandler
 
     public void OnDrag(PointerEventData eventData)
     {
+        if (Time.timeScale == 0.0f)
+            return;
         Vector3 position = Camera.main.ScreenToWorldPoint(eventData.position);
         position.z = _transform.position.z;
         _transform.position = position;
