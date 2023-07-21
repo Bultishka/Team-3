@@ -136,8 +136,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2eb1efd9bc156ac45b9341d37e7dc2d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ShowingPanelSettings: {fileID: 0}
-  ShowingPanelPlatformInfo: {fileID: 0}
+  ShowingPanelSettings: {fileID: 2108232812921428004, guid: 2b86b92e52224844cacfbfb108b5881c, type: 3}
 --- !u!114 &5883152299065319227
 MonoBehaviour:
   m_ObjectHideFlags: 0

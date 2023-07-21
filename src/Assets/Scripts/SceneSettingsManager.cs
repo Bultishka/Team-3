@@ -8,10 +8,6 @@ public class SceneSettingsManager : MonoBehaviour
     [SerializeField]
     private GameObject ShowingPanelSettings;
 
-    [SerializeField]
-    private GameObject ShowingPanelPlatformInfo;
-
-
     public static SceneSettingsManager instance;
 
     private void Awake()
@@ -30,7 +26,7 @@ public class SceneSettingsManager : MonoBehaviour
     {
         ShowingPanelSettings.SetActive(true);
         ShowingPanelSettings.GetComponentInParent<Canvas>().sortingOrder = 1;
-        Time.timeScale = 0.0f; // Stop game time
+        Time.timeScale = 0.0f;
     }
 
     public void ContinuePushButtonReleased()
@@ -39,17 +35,5 @@ public class SceneSettingsManager : MonoBehaviour
         ShowingPanelSettings.GetComponentInParent<Canvas>().sortingOrder = 0;
         if (Time.timeScale == 0.0f)
             Time.timeScale = 1.0f;
-    }
-
-    public void ShowPlatformInfoPanel()
-    {
-        ShowingPanelPlatformInfo.GetComponentInParent<Canvas>().sortingOrder = 1;
-        ShowingPanelPlatformInfo.SetActive(true);
-    }
-
-    public void ClosePlatformInfoPanel()
-    {
-        ShowingPanelPlatformInfo.GetComponentInParent<Canvas>().sortingOrder = 0;
-        ShowingPanelPlatformInfo.SetActive(false);
     }
 }
