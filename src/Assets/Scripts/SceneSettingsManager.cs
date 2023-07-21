@@ -11,6 +11,14 @@ public class SceneSettingsManager : MonoBehaviour
     [SerializeField]
     private GameObject ShowingPanelPlatformInfo;
 
+
+    public static SceneSettingsManager instance;
+
+    private void Awake()
+    {
+        instance = this;
+    }
+
     public void RestartPushButtonReleased()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
@@ -31,5 +39,17 @@ public class SceneSettingsManager : MonoBehaviour
         ShowingPanelSettings.GetComponentInParent<Canvas>().sortingOrder = 0;
         if (Time.timeScale == 0.0f)
             Time.timeScale = 1.0f;
+    }
+
+    public void ShowPlatformInfoPanel()
+    {
+        ShowingPanelPlatformInfo.GetComponentInParent<Canvas>().sortingOrder = 1;
+        ShowingPanelPlatformInfo.SetActive(true);
+    }
+
+    public void ClosePlatformInfoPanel()
+    {
+        ShowingPanelPlatformInfo.GetComponentInParent<Canvas>().sortingOrder = 0;
+        ShowingPanelPlatformInfo.SetActive(false);
     }
 }

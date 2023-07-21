@@ -5,11 +5,12 @@ TagManager:
   serializedVersion: 2
   tags:
   - HoneyBall
+  - Platform
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Platform
   - Water
   - UI
   - InformationPanel
