@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -30,11 +31,8 @@ public class PlatformDragger : MonoBehaviour, IDragHandler, IEndDragHandler, IPo
     {
         _allPlatforms = GetAllProbablyIntersectObjects();
 
-        // Fix
         foreach (var platform in _allPlatforms)
             FixIntersection(platform);
-
-        // Postfix
         foreach (var platform in _allPlatforms)
             FixIntersection(platform);
 
@@ -84,7 +82,14 @@ public class PlatformDragger : MonoBehaviour, IDragHandler, IEndDragHandler, IPo
     public void OnPointerUp(PointerEventData eventData)
     {
         if (!_isDragging)
-            SceneSettingsManager.instance.ShowPlatformInfoPanel();
+        {
+            float angle = 10.0f;
+            if (GetComponent<Renderer>().bounds.center.x < Camera.main.ScreenToWorldPoint(eventData.position).x)
+                angle = -10.0f;
+            gameObject.transform.Rotate(0, 0, angle);
+
+            _allPlatforms = GetAllProbablyIntersectObjects();
+        }
     }
 
     public void OnPointerDown(PointerEventData eventData) {}
