@@ -8,8 +8,8 @@ public class PlatformDragger : MonoBehaviour, IDragHandler, IEndDragHandler, IPo
 {
     private Transform _transform;
     private bool _isDragging;
-    private List<GameObject> _allPlatforms;
-    private const float move = 0.05f;
+    private List<GameObject> _allProbablyIntersectObjects;
+    private const float move = 0.025f;
 
     void Start()
     {
@@ -29,24 +29,25 @@ public class PlatformDragger : MonoBehaviour, IDragHandler, IEndDragHandler, IPo
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        _allPlatforms = GetAllProbablyIntersectObjects();
-
-        foreach (var platform in _allPlatforms)
-            FixIntersection(platform);
-        foreach (var platform in _allPlatforms)
-            FixIntersection(platform);
-
+        _allProbablyIntersectObjects = GetAllProbablyIntersectObjects();
+        for (int i = 0; i != 3; i++)
+        {
+            foreach (var obj in _allProbablyIntersectObjects)
+                FixIntersection(obj);
+        }
         _isDragging = false;
     }
 
     private List<GameObject> GetAllProbablyIntersectObjects()
     {
         var objects = GameObject.FindGameObjectsWithTag("Platform").ToList();
-        foreach (var platform in objects)
+        objects.AddRange(GameObject.FindGameObjectsWithTag("StartFinish").ToList());
+        
+        foreach (var obj in objects)
         {
-            if (platform == gameObject)
+            if (obj == gameObject)
             {
-                objects.Remove(platform);
+                objects.Remove(obj);
                 break;
             }
         }
@@ -88,7 +89,12 @@ public class PlatformDragger : MonoBehaviour, IDragHandler, IEndDragHandler, IPo
                 angle = -10.0f;
             gameObject.transform.Rotate(0, 0, angle);
 
-            _allPlatforms = GetAllProbablyIntersectObjects();
+            _allProbablyIntersectObjects = GetAllProbablyIntersectObjects();
+            for (int i = 0; i != 3; i++)
+            {
+                foreach (var obj in _allProbablyIntersectObjects)
+                    FixIntersection(obj);
+            }
         }
     }
 

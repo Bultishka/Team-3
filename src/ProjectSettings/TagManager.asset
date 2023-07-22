@@ -6,6 +6,8 @@ TagManager:
   tags:
   - HoneyBall
   - Platform
+  - StartExit
+  - StartFinish
   layers:
   - Default
   - TransparentFX

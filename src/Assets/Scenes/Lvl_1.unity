@@ -671,7 +671,7 @@ GameObject:
   - component: {fileID: 925869270}
   m_Layer: 0
   m_Name: Entry
-  m_TagString: Untagged
+  m_TagString: StartFinish
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1106,6 +1106,10 @@ PrefabInstance:
     - target: {fileID: 3405221443878826542, guid: b39432b3f34eff34a84a3c1135d6a218, type: 3}
       propertyPath: m_Name
       value: Exit
+      objectReference: {fileID: 0}
+    - target: {fileID: 3405221443878826542, guid: b39432b3f34eff34a84a3c1135d6a218, type: 3}
+      propertyPath: m_TagString
+      value: StartFinish
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3405221443878826533, guid: b39432b3f34eff34a84a3c1135d6a218, type: 3}
